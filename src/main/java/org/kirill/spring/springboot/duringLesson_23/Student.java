@@ -1,4 +1,4 @@
-package org.kirill.spring.springboot.duringLesson;
+package org.kirill.spring.springboot.duringLesson_23;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
