@@ -1,4 +1,4 @@
-package org.kirill.spring.springboot.homework.lesson_23;
+package org.kirill.spring.springboot.homework.lesson_23.parsers;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -7,18 +7,15 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
-public class TestDOMParser {
-//
+public class DOMParserProcessor {
+
     private final static String outputFile
-            = "src/main/java/org/kirill/spring/springboot/homework/lesson_23/firstName_lastName_title.txt";
+            = "src/main/resources/firstName_lastName_title.txt";
 
-    public static void main(String[] args) {
-
+    public DOMParserProcessor() {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
@@ -26,11 +23,7 @@ public class TestDOMParser {
             Document document = builder.parse("src/main/resources/lesson_23.xml");
             document.getDocumentElement().normalize();
 
-            try(BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
-
-                Element root = document.getDocumentElement();
-                System.out.println("Root element "+root.getNodeName());
-
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
                 NodeList authorNode = document.getElementsByTagName("author");
 
                 if (authorNode.getLength() > 0) {
@@ -45,15 +38,15 @@ public class TestDOMParser {
 
                         writer.write("Author details: ");
                         writer.newLine();
-                        writer.write("First Name: "+firstName);
+                        writer.write("First Name: " + firstName);
                         writer.newLine();
-                        writer.write("Last Name: "+lastName);
+                        writer.write("Last Name: " + lastName);
                         writer.newLine();
-                        writer.write("Nationality: "+nationality);
+                        writer.write("Nationality: " + nationality);
                         writer.newLine();
-                        writer.write("Year of Birth: "+yearOfBirth);
+                        writer.write("Year of Birth: " + yearOfBirth);
                         writer.newLine();
-                        writer.write("Year of Death: "+yearOfBirth);
+                        writer.write("Year of Death: " + yearOfBirth);
                         writer.newLine();
                     }
                 }
@@ -64,35 +57,17 @@ public class TestDOMParser {
                 for (int i = 0; i < lineNode.getLength(); i++) {
                     Node line = lineNode.item(i);
                     if (line.getNodeType() == Node.ELEMENT_NODE) {
-                        writer.write("Line " + (i + 1) + ": "+line.getTextContent());
+                        writer.write("Line " + (i + 1) + ": " + line.getTextContent());
                         writer.newLine();
                     }
                 }
                 writer.write("Content has been successfully written to the file.");
-                System.out.println("Data successfully written to " + outputFile);
-            }catch (Exception e) {
+                System.out.println("DOM parser\nData successfully written to " + outputFile);
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            //
-
-
-
-
-
-
-
-
-
-
-
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        }catch (Exception e) {
+            e.printStackTrace();
         }
-
-
-
-
     }
-
 }

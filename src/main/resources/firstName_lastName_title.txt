@@ -1,10 +1,11 @@
-Author details: 
+Author
 First Name: William
-Last Name: Shakespeare
 Nationality: British
-Year of Birth: 1616
-Year of Death: 1616
-Sonnet Lines: 
+Year Of Birth: 1564
+Year Of Death: 1616
+Source: teachmeskills.by
+Title: Sonnet_130
+lines
 Line 1: My mistress' eyes are nothing like the sun,
 Line 2: Coral is far more red than her lips red.
 Line 3: If snow be white, why then her breasts are dun,
@@ -19,4 +20,3 @@ Line 11: I grant I never saw a goddess go,
 Line 12: My mistress when she walks, treads on the ground.
 Line 13: And yet, by Heaven, I think my love as rare
 Line 14: As any she belied with false compare.
-Content has been successfully written to the file.
