@@ -65,6 +65,7 @@ public class DOMParserProcessor {
                 System.out.println("DOM parser\nData successfully written to " + outputFile);
             } catch (Exception e) {
                 e.printStackTrace();
+                //
             }
         }catch (Exception e) {
             e.printStackTrace();
